@@ -1,0 +1,11 @@
+<h2>My Villians</h2>
+<ul class="villans">
+  <li *ngFor="let villan of villans">
+    <button [class.selected]="villan === selectedVillan" type="button" (click)="onSelect(villan)">
+      <span class="badge">{{villan.id}}</span>
+      <span class="name"> {{villan.name}}</span>
+      <!--   <span class="deets"> {{hero.details}}</span> -->
+    </button>
+  </li>
+</ul>
+<app-villan-detail [villan]="selectedVillan"></app-villan-detail>
