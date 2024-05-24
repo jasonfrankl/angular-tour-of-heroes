@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Villan } from '../villans';
 import { VillanDetailComponent } from '../villan-detail/villan-detail.component';
 import { MessageService } from '../message.service';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-villans',
   standalone: true,
@@ -14,7 +15,9 @@ import { MessageService } from '../message.service';
     NgFor,
     UpperCasePipe,
     NgIf,
-    VillanDetailComponent,],
+    VillanDetailComponent,
+    RouterModule,
+],
   templateUrl: './villans.component.html',
   styleUrl: './villans.component.css'
 })
@@ -26,10 +29,7 @@ export class VillansComponent {
   getVillans(): void {
     this.villanService.getVillans().subscribe(villans => this.villans = villans);
   }
-  onSelect(villan: Villan): void {
-    this.selectedVillan = villan;
-    this.messageService.add(`VillanssComponent: Selected villan id=${villan.id}`);
-  }
+ 
 
   ngOnInit(): void {
     this.getVillans();
